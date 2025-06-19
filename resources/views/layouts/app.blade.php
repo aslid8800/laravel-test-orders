@@ -14,6 +14,7 @@
         @endif
 <!--+add+-->
         @yield('content')
+        <!--+add 02+-->
     </div>
 </body>
 </html>
