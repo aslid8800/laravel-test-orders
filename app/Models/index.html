@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Слайдер как у суши-сайта</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Slick   https://sushistore.ru/ -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #111;
+      font-family: sans-serif;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      padding: 40px 0;
+      background: #000;
+    }
+
+    .hero__slider {
+      width: 100%;
+    }
+
+    .hero__slide {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      transform: scale(0.9);
+      opacity: 0.5;
+      transition: all 0.3s ease;
+    }
+
+    .slick-center {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .hero__content {
+      height: 450px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      font-weight: bold;
+      color: white;
+      border-radius: 16px;
+    }
+
+    .slide1 { background: #e74c3c; }
+    .slide2 { background: #27ae60; }
+    .slide3 { background: #2980b9; }
+    .slide4 { background: #f39c12; }
+
+    /* Arrows */
+    .slick-prev,
+    .slick-next {
+      width: 40px;
+      height: 40px;
+      
+      border-radius: 50%;
+      z-index: 2;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+      font-size: 50px;
+      color: #f1c40f;
+    }
+
+    .slick-prev {
+      left: 60px;
+    }
+
+    .slick-next {
+      right: 60px;
+    }
+
+    /* Dots */
+    .slick-dots {
+      bottom: -30px;
+    }
+
+    /* Ограничение радиуса и скролла */
+    .slick-list,
+    .slick-track,
+    .slick-slide {
+      border-radius: 16px;
+    }
+
+    /* Адаптив — скрыть стрелки */
+    @media (max-width: 1240px) {
+      .slick-prev, .slick-next {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero__content {
+        height: 280px;
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="hero__slider" id="heroSlider">
+      <div class="hero__slide">
+        <div class="hero__content slide1">Слайд 1 — Акция</div>
+      </div>
+      <div class="hero__slide">
+        <div class="hero__content slide2">Слайд 2 — Скидка</div>
+      </div>
+      <div class="hero__slide">
+        <div class="hero__content slide3">Слайд 3 — Роллы</div>
+      </div>
+      <div class="hero__slide">
+        <div class="hero__content slide4">Слайд 4 — Кэшбэк</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slick JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      $('#heroSlider').slick({
+        centerMode: true,
+        centerPadding: '20%',
+        slidesToShow: 1,
+        arrows: true,
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        responsive: [
+          {
+            breakpoint: 1240,
+            settings: {
+              arrows: false,
+              centerPadding: '10%'
+            }
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              arrows: false,
+              centerPadding: '5%'
+            }
+          }
+        ]
+      });
+    });
+  </script>
+
+</body>
+</html>
