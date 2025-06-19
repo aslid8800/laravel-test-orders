@@ -12,7 +12,7 @@
         @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
-
+<!--+add+-->
         @yield('content')
     </div>
 </body>
